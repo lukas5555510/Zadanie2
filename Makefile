@@ -1,14 +1,17 @@
 #makefile
 
-vpath %.h include
+.SUFFIXES: .o
 
-Code2: Code2.c capacity.so area.a
-	gcc -o $@ $^ -I ./include
+vpath %.h include
+vpath %.c src
+vpath %.so lib
+vpath %.a lib
+
+%.o: %.c
+	gcc -c $<
 
 area.o: area.c
-	gcc -c $<
 cuboid_area.o: cuboid_area.c
-	gcc -c $<
 capacity.o: capacity.c
 	gcc -fPIC -c $<
 area.a: area.o cuboid_area.o
@@ -16,5 +19,9 @@ area.a: area.o cuboid_area.o
 capacity.so: capacity.o
 	gcc -shared -o $@ $^
 
-clean:
-	rm -f Code2 *.o *.a *.so
+install: Code2.c capacity.so area.a
+	export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./:./include:./lib/
+	gcc -o Code2 $^ -I ./include -L ./lib/
+
+uninstall:
+	rm -f Code2 *.o ./lib/*.a ./lib/*.so
