@@ -6,7 +6,7 @@ Instalacja
 1. Przejdź do folderu w którym ma zostać pobrane repozytorium
 2. Użyj komendy: git clone https://github.com/lukas5555510/Zadanie2/tree/master
 3. Następnie użyj komendy make albo make install żeby zainstalować
-4. Uruchodzmineie programu: ./Code2
+4. Uruchomineie programu: ./Code2
 
 Deinstalacja
 
