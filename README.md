@@ -13,4 +13,3 @@ Deinstalacja
 1. Przejdź do folderu z zainstalowanym programem
 2. Użyj komendy: make uninstall
 
-Żeby na umieścić na githubie tylko pliki potrzebne do zainstalowania programu użyłem .gitignore
